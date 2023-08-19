@@ -1,6 +1,6 @@
 import { calculateColor } from "../utils/colors-temperatures.js";
 import { weatherCodeMapping } from "../utils/utils.js";
-const divId = document.getElementById("scr").attributes["div-id"].nodeValue;
+const divId = document.getElementById("scr").attributes["div-id"]?.nodeValue;
 
 const styleDayAvg = (dayDiv, day, avgTemperature) => {
     dayDiv.id = day.toLowerCase();
