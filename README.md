@@ -19,8 +19,9 @@ The Historical Weather Widget is a web component that displays average temperatu
 3. Use the provided methods to interact with the widget and fetch historical weather data.
 
 ## Notes
-
-You might wonder why there are images and descriptions if I display an average temperature.
+* The user's current location averages data is logged into the console.
+* The free weather API I found is in a delay of 5 days.
+* You might wonder why there are images and descriptions if I display an average temperature.
 Well, I sampled all the weather codes for a given day, and I display the most frequent weather code (weather code eventually translates to image and description)
 
 
