@@ -124,7 +124,7 @@ const includeCssFile = () => {
     const linkElement = document.createElement("link");
     linkElement.rel = "stylesheet";
     linkElement.type = "text/css";
-    linkElement.href = "../styles/weather-widget.styles.css";
+    linkElement.href = "./styles/weather-widget.styles.css";
 
     document.head.appendChild(linkElement);
 };
@@ -402,13 +402,13 @@ const enableButtons = (buttons) => {
 };
 
 const handleDivsVisibility = () => {
-        const errorMessageContainer = document.getElementById("error-message");
-        errorMessageContainer.style.display = "none";
+    const errorMessageContainer = document.getElementById("error-message");
+    errorMessageContainer.style.display = "none";
 
-        const averagesDiv = document.getElementById("avg-days");
-        if (averagesDiv) {
-            averagesDiv.style.display = "none";
-        }
+    const averagesDiv = document.getElementById("avg-days");
+    if (averagesDiv) {
+        averagesDiv.style.display = "none";
+    }
 };
 
 const handleError = () => {
@@ -422,15 +422,19 @@ const handleError = () => {
 };
 
 const execute = async () => {
-    const { startDate, endDate } = get30DaysDateRange();
-    const userAverageTemperature = await getUserAverageTemperature(
-        startDate,
-        endDate
-    );
-    console.log(
-        "User's current location averages data:",
-        userAverageTemperature
-    );
+    try {
+        const { startDate, endDate } = get30DaysDateRange();
+        const userAverageTemperature = await getUserAverageTemperature(
+            startDate,
+            endDate
+        );
+        console.log(
+            "User's current location averages data:",
+            userAverageTemperature
+        );
+    } catch (err) {
+        console.log("Error fetching user current location data: ", err);
+    }
 
     includeCssFile();
     createElements();
